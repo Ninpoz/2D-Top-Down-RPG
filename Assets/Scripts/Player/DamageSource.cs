@@ -18,5 +18,11 @@ public class DamageSource : MonoBehaviour
         // If the EnemyHealth component is found, call the TakeDamage method to inflict damage
         // The null-conditional operator "?." ensures the method is called only if enemyHealth is not null
         enemyHealth?.TakeDamage(damageAmount);
+
+        TreeDestroy treeDestroy = other.GetComponent<TreeDestroy>();
+
+        treeDestroy?.TakeDamage(damageAmount);
+
+        print("collider regged");
     }
 }

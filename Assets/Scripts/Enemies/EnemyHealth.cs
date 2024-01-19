@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,11 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private GameObject deathVFXPrefab; // Prefab for the death visual effects
     [SerializeField] private float knockBackThrust = 15f; // Force applied to the enemy upon taking damage
 
-    private int currentHealth; // Current health of the enemy
+    public int currentHealth; // Current health of the enemy
     private KnockBack knockBack; // Reference to the KnockBack component for applying knockback effect
     private Flash flash; // Reference to the Flash component for visual feedback on damage
+
+  
 
     // Awake is called when the script instance is being loaded
     private void Awake()
