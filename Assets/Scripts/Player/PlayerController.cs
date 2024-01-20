@@ -91,6 +91,8 @@ public class PlayerController : MonoBehaviour
     // Method to adjust the player's facing direction based on the mouse position
     private void AdjustPlayerFacingDirection()
     {
+
+        //----------------------Mouse only input------------------------//
         // Get the mouse position and the player's position in screen coordinates
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
