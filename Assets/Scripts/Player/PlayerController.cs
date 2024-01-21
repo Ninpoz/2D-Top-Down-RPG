@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // Define the PlayerController class
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     // Public property to check if the player is facing left
     public bool FacingLeft { get { return facingLeft; } }
-    public static PlayerController Instance;
+
 
     // Serialize the field for move speed, making it editable in the Unity editor
     [SerializeField] private float moveSpeed = 1f;
@@ -28,11 +28,9 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
 
     // Awake is called when the script instance is being loaded
-    private void Awake()
+    protected override void Awake()
     {
-        // Set the instance to this script
-        Instance = this;
-
+        base.Awake();
         // Initialize player controls and get references to Rigidbody2D, Animator, and SpriteRenderer
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
