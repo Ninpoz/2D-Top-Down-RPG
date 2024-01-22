@@ -6,7 +6,9 @@ using UnityEngine;
 // Define the EnemyAI class
 public class EnemyAI : MonoBehaviour
 {
+    
     [SerializeField] private float roamChangeDirFloat = 2f;
+    
     // Define the possible states for the enemy AI
     private enum State
     {
