@@ -8,7 +8,8 @@ public class EnemyAI : MonoBehaviour
 {
     
     [SerializeField] private float roamChangeDirFloat = 2f;
-    
+    [SerializeField] public int enemyID = 0;
+   
     // Define the possible states for the enemy AI
     private enum State
     {
@@ -34,6 +35,7 @@ public class EnemyAI : MonoBehaviour
     {
         // Start the coroutine for the Roaming state
         StartCoroutine(RoamingRoutine());
+       
     }
 
     // Coroutine to handle the Roaming state

@@ -15,6 +15,7 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
     [SerializeField] private TrailRenderer myTrailRenderer;
+    [SerializeField] private Transform weaponCollider;
 
     // Declare private variables for player controls, movement, Rigidbody2D, Animator, and SpriteRenderer
     private PlayerControls playerControls;
@@ -66,6 +67,11 @@ public class PlayerController : Singleton<PlayerController>
         // Call methods to adjust player facing direction and move the player
         AdjustPlayerFacingDirection();
         Move();
+    }
+
+    public Transform GetWeaponCollider() 
+    { 
+        return weaponCollider;
     }
 
     // Method to handle player input
