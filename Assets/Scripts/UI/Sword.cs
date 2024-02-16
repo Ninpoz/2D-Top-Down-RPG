@@ -11,6 +11,7 @@ public class Sword : MonoBehaviour, IWeapon
     [SerializeField] private GameObject slashAnimPrefab; // Prefab for the slashing animation
     [SerializeField] private Transform slashAnimSpawnPoint; // Spawn point for the slashing animation
     [SerializeField] private float swordAttackCD = 0.5f; // Cooldown time for sword attacks
+    [SerializeField] private WeaponInfo weaponInfo;
 
     private Transform weaponCollider;
     private Animator myAnimator; // Animator component reference
@@ -40,27 +41,22 @@ public class Sword : MonoBehaviour, IWeapon
         MouseFollowWithOffset();
        
     }
+
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
+    }
  
     // Method to handle the Attack action
     public void Attack()
     {
-       
-            // Trigger the "Attack" animation in the Animator
-            //isAttacking = true;
             myAnimator.SetTrigger("Attack");
             weaponCollider.gameObject.SetActive(true);
             slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
             slashAnim.transform.parent = this.transform.parent;
-            StartCoroutine(AttackCDRoutine());
-        
     }
 
-    // Coroutine for the attack cooldown
-    private IEnumerator AttackCDRoutine()
-    {
-        yield return new WaitForSeconds(swordAttackCD);
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
-    }
+
 
     // Event called when the attack animation is done
     public void DoneAttackAnimEvent()
