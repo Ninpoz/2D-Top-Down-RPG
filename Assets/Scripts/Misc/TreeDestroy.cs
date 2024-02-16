@@ -61,16 +61,15 @@ public class TreeDestroy : MonoBehaviour
         }
     }
 
-  
+
 
     //private void OnTriggerEnter2D(Collider2D other)
     //{
-    //    // Attempt to get the EnemyHealth component from the collided object
-    //    EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
-
-    //    // If the EnemyHealth component is found, call the TakeDamage method to inflict damage
-    //    // The null-conditional operator "?." ensures the method is called only if enemyHealth is not null
-    //    enemyHealth?.TakeDamage(damageAmount);
+    //    if (other.gameObject == ActiveWeapon.Instance.CurrentActiveWeapon.gameObject &&
+    //      ActiveWeapon.Instance.CurrentActiveWeapon is Axe)
+    //    {
+    //        TakeDamage(1);
+    //    }
     //}
 
 

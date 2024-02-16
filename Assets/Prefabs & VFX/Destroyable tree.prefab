@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8812158327017183858}
   - component: {fileID: 6059662526111672582}
   - component: {fileID: 3289720040979448158}
+  - component: {fileID: 4942655354586390662}
   m_Layer: 0
   m_Name: Destroyable tree
   m_TagString: Untagged
@@ -232,3 +233,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transparencyAmount: 0.8
   fadeTime: 0.4
+--- !u!114 &4942655354586390662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9207635476721387903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bb6b62da492b449a6c548ef31255cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

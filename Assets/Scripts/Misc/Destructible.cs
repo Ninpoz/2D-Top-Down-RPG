@@ -16,7 +16,7 @@ public class Destructible : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the colliding object has a DamageSource component
-        if (other.gameObject.GetComponent<DamageSource>())
+        if (other.gameObject.GetComponent<DamageSource>() || other.gameObject.GetComponent<Projectile>());
         {
             // Instantiate the destruction visual effect at the current position with no rotation
             Instantiate(destroyVFX, transform.position, Quaternion.identity);

@@ -2472,8 +2472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slashAnimPrefab: {fileID: 8669982995216837270, guid: bbb0d1b3fcefda643bbcd68a8e80758a, type: 3}
   slashAnimSpawnPoint: {fileID: 184457414}
-  weaponCollider: {fileID: 639451421}
   swordAttackCD: 0.5
+  weaponInfo: {fileID: 0}
 --- !u!1001 &1042622044
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19536,6 +19536,7 @@ GameObject:
   - component: {fileID: 1626051488}
   - component: {fileID: 1626051493}
   - component: {fileID: 1626051492}
+  - component: {fileID: 1626051494}
   - component: {fileID: 1626051491}
   - component: {fileID: 1626051490}
   - component: {fileID: 1626051489}
@@ -25482,6 +25483,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1626051494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626051487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bb6b62da492b449a6c548ef31255cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1637769402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25678,6 +25691,7 @@ MonoBehaviour:
   moveSpeed: 4
   dashSpeed: 4
   myTrailRenderer: {fileID: 344873149}
+  weaponCollider: {fileID: 0}
 --- !u!95 &1715010008
 Animator:
   serializedVersion: 5
