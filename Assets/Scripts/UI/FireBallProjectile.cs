@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class FireBallProjectile : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 22f;
     [SerializeField] private GameObject particleOnHitPrefabVFX;
 
+
     private WeaponInfo weaponInfo;
     private Vector3 startPosition;
+
+
+
 
     private void Start()
     {
         startPosition = transform.position;
+
+
     }
 
     private void Update()
@@ -35,6 +41,8 @@ public class Projectile : MonoBehaviour
         {
             enemyHealth?.TakeDamage(weaponInfo.weaponDamage);
             Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);
+
+
             Destroy(gameObject);
         }
     }
@@ -50,5 +58,6 @@ public class Projectile : MonoBehaviour
     private void MoveProjectile()
     {
         transform.Translate(Vector3.right * Time.deltaTime * moveSpeed);
+
     }
 }
