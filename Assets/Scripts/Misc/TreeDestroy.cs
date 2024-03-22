@@ -11,10 +11,12 @@ public class TreeDestroy : MonoBehaviour
     [SerializeField] private GameObject SpawnStump;
     [SerializeField] private int startingHealth = 3;
     [SerializeField] private GameObject deathVFXPrefab;
-    
-    
-    
-   
+    public delegate void TreeDestroyedEventHandler();
+    public static event TreeDestroyedEventHandler OnTreeDestroyed;
+
+
+
+    private bool hasBeenDestroyed = false;
     public int currentHealth;
     private Flash flash;
     // Start is called before the first frame update
@@ -48,12 +50,13 @@ public class TreeDestroy : MonoBehaviour
     // Method to detect if the enemy has died
     public void DetectDeath()
     {
-        if (currentHealth <= 0)
+        if (!hasBeenDestroyed && currentHealth <= 0)
         {
-            print("Inside death method");
+            hasBeenDestroyed = true; // Set the flag to true to indicate that the tree has been destroyed
+
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity); // Instantiate death visual effects
             Vector2 currentPos = transform.transform.position;
-
+            OnTreeDestroyed?.Invoke();
             Vector2 newPos = new Vector3(currentPos.x, currentPos.y - 1f);
             Instantiate(SpawnLog, transform.position, Quaternion.identity);
             Instantiate(SpawnStump, newPos, Quaternion.identity);

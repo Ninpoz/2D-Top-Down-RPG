@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2840259021235432356}
   m_Layer: 0
   m_Name: Destroyable tree 2
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +142,7 @@ MonoBehaviour:
   SpawnStump: {fileID: 5341944233444194557, guid: aa405b92b6b5b3e41a5e8566b6efd16e, type: 3}
   startingHealth: 3
   deathVFXPrefab: {fileID: 1168260041093003642, guid: 4965ea70b7a92b74da5f1302ec013a7b, type: 3}
+  treeDestroyed: 0
   currentHealth: 0
 --- !u!50 &7605015610534697389
 Rigidbody2D:

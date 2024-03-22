@@ -23,6 +23,6 @@ public class DamageSource : MonoBehaviour
 
         treeDestroy?.TakeDamage(damageAmount);
 
-        print("collider regged");
+       
     }
 }

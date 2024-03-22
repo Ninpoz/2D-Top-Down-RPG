@@ -13,6 +13,8 @@ public class AreaExit : MonoBehaviour
     // Triggered when another collider enters this trigger collider
     private void OnTriggerEnter2D(Collider2D other)
     {
+
+      
         // Check if the entering collider belongs to the player
         if (other.gameObject.GetComponent<PlayerController>())
         {
