@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 6904861618118330981}
   m_Layer: 0
   m_Name: Blue Slime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roamChangeDirFloat: 2
+  enemyID: 0
 --- !u!114 &7764385425547056707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +217,7 @@ MonoBehaviour:
   startingHealth: 3
   deathVFXPrefab: {fileID: 6486614595768891792, guid: be1d6bf0fdfff604bb39e91d44fbef88, type: 3}
   knockBackThrust: 15
+  currentHealth: 0
 --- !u!114 &6865181222998442478
 MonoBehaviour:
   m_ObjectHideFlags: 0

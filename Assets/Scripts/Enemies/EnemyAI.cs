@@ -9,7 +9,8 @@ public class EnemyAI : MonoBehaviour
     
     [SerializeField] private float roamChangeDirFloat = 2f;
     [SerializeField] public int enemyID = 0;
-   
+    [SerializeField] private int damageAmount = 1;
+
     // Define the possible states for the enemy AI
     private enum State
     {

@@ -1,19 +1,24 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int startingHealth = 3; // Initial health of the enemy
-    [SerializeField] private GameObject deathVFXPrefab; // Prefab for the death visual effects
-    [SerializeField] private float knockBackThrust = 15f; // Force applied to the enemy upon taking damage
 
-    public int currentHealth; // Current health of the enemy
+    //[SerializeField] private int startingHealth = 3; // Initial health of the enemy
+    [SerializeField] private GameObject deathVFXPrefab; // Prefab for the death visual effects
+    [SerializeField] private float knockBackThrust = 10f; // Force applied to the enemy upon taking damage
+
+   
     private KnockBack knockBack; // Reference to the KnockBack component for applying knockback effect
     private Flash flash; // Reference to the Flash component for visual feedback on damage
-    public delegate void EnemyKilledEventHandler();
-    public static event EnemyKilledEventHandler OnEnemyKilled;
+
+    public int maxHealth = 100;
+    public int currentHealth;
+    public Healthbar healthbar;
+    private bool canTakeDamage = true;
+    private EnemyAI enemyAI;
+
 
 
 
@@ -27,14 +32,28 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        currentHealth = startingHealth; // Set the initial health
+        currentHealth = maxHealth; // Set the initial health
+        healthbar.SetMaxHealth(maxHealth);
     }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
+
+        if (enemy && canTakeDamage)
+        {
+            TakeDamage(1);
+            knockBack.GetKnockedBack(other.gameObject.transform, knockBackThrust);
+            StartCoroutine(flash.FlashRoutine());
+        }
+    }
+
 
     // Method to apply damage to the enemy
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage; // Decrease current health by the given damage value
-        knockBack.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust); // Apply knockback effect
+        healthbar.SetHealth(currentHealth);
+        currentHealth -= damage; // Decrease current health by the given damage value 
         StartCoroutine(flash.FlashRoutine()); // Initiate flash effect to indicate damage
         StartCoroutine(CheckDetectDeathRoutine()); // Check if the enemy's health is zero or below
     }
@@ -52,8 +71,24 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity); // Instantiate death visual effects
-            OnEnemyKilled?.Invoke();
+           
             Destroy(gameObject); // Destroy the enemy GameObject
         }
     }
 }
+
+
+//private void Start()
+//{
+//    currentHealth = maxHealth;
+//    healthbar.SetMaxHealth(maxHealth);
+//}
+
+
+
+//void TakeDamage(int damage)
+//{
+//    currentHealth -= damage;
+//    healthbar.SetHealth(currentHealth);
+//}
+

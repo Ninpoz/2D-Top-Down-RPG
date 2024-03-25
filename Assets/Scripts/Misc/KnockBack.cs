@@ -25,6 +25,7 @@ public class KnockBack : MonoBehaviour
     // Method to initiate the knockback effect
     public void GetKnockedBack(Transform damageSource, float knockBackThrust)
     {
+        Debug.Log("Knockback initiated.");
         // Set the flag indicating that the object is currently being knocked back
         GettingKnockedBack = true;
 
